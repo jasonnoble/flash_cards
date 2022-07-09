@@ -32,6 +32,8 @@ RSpec.describe Turn do
     it 'returns feedback when the guess is correct' do
       expect(turn.feedback).to eq('Correct!')
     end
-    it 'returns feedback when the guess is incorrect'
+    it 'returns feedback when the guess is incorrect' do
+      expect(incorrect_turn.feedback).to eq('Incorrect.')
+    end
   end
 end
