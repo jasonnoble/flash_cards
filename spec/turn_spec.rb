@@ -4,6 +4,7 @@ require './lib/card'
 RSpec.describe Turn do
   let(:card) { Card.new("What is the capital of Alaska?", "Juneau", :Geography) }
   let(:turn) { Turn.new("Juneau", card) }
+  let(:incorrect_turn) { Turn.new("Seattle", card) }
   describe '#new(guess, card)' do
     it 'creates a Turn' do
       expect(turn).to be_a(Turn)
@@ -23,7 +24,9 @@ RSpec.describe Turn do
     it 'returns true when the guess is correct' do
       expect(turn.correct?).to eq(true)
     end
-    it 'returns false when the guess is incorrect'
+    it 'returns false when the guess is incorrect' do
+      expect(incorrect_turn.correct?).to eq(false)
+    end
   end
   describe '#feedback' do
     it 'returns feedback when the guess is correct'
