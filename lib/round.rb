@@ -32,7 +32,28 @@ class Round
     (number_correct_by_category(category).to_f / turns_for_category(category).count) * 100
   end
 
+  def run
+    puts "Welcome! You're playing with #{card_count} cards."
+    puts "-------------------------------------------------"
+    deck.cards.count.times do |round_number|
+      puts "This is card number #{round_number + 1} out of #{card_count}."
+      puts "Question: #{current_card.question}"
+      answer = gets.chomp
+      turn = take_turn(answer)
+      puts turn.feedback
+    end
+    puts "****** Game over! ******"
+    puts "You had #{number_correct} correct guesses out of #{card_count} for a total score of #{percent_correct.to_i}%."
+    puts "STEM - #{percent_correct_by_category(:STEM)}% correct"
+    puts "Turing Staff - #{percent_correct_by_category("Turing Staff")}% correct"
+    puts "Pop Culture - #{percent_correct_by_category("Pop Culture")}% correct"
+  end
+
   private
+
+  def card_count
+    deck.cards.count
+  end
 
   def correct_turns
     turns.select { |turn| turn.correct? }
