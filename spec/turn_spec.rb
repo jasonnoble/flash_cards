@@ -20,7 +20,9 @@ RSpec.describe Turn do
     end
   end
   describe '#correct?' do
-    it 'returns true when the guess is correct'
+    it 'returns true when the guess is correct' do
+      expect(turn.correct?).to eq(true)
+    end
     it 'returns false when the guess is incorrect'
   end
   describe '#feedback' do
