@@ -15,7 +15,9 @@ RSpec.describe Turn do
     end
   end
   describe '#card' do
-    it 'returns the card'
+    it 'returns the card' do
+      expect(turn.card).to eq(card)
+    end
   end
   describe '#correct?' do
     it 'returns true when the guess is correct'
