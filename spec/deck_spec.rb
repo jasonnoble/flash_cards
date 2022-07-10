@@ -23,6 +23,11 @@ RSpec.describe Deck do
       expect(deck.count).to eq(3)
     end
   end
+  describe '#categories' do
+    it 'returns a unique list of the card categories' do
+      expect(deck.categories).to eq([:Geography, :STEM])
+    end
+  end
   describe '#cards_in_category(category)' do
     it 'returns cards in that category' do
       expect(deck.cards_in_category(:STEM)).to eq([card_2, card_3])

@@ -9,6 +9,10 @@ class Deck
     cards.count
   end
 
+  def categories
+    cards.map{|card| card.category }.uniq
+  end
+
   def cards_in_category(category)
     cards.select{|card| card.category == category }
   end

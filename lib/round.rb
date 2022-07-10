@@ -44,9 +44,9 @@ class Round
     end
     puts "****** Game over! ******"
     puts "You had #{number_correct} correct guesses out of #{card_count} for a total score of #{percent_correct.to_i}%."
-    puts "STEM - #{percent_correct_by_category(:STEM)}% correct"
-    puts "Turing Staff - #{percent_correct_by_category("Turing Staff")}% correct"
-    puts "Pop Culture - #{percent_correct_by_category("Pop Culture")}% correct"
+    deck.categories.each do |category|
+      puts "#{category} - #{percent_correct_by_category(category).to_i}% correct"
+    end
   end
 
   private
